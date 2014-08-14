@@ -1,0 +1,57 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+thead a:link, thead a:active, thead a:visited, thead a:hover {
+    color: white;
+    text-decoration: none;
+}
+table, td, th {
+    border: 1px solid black;
+}
+table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+thead {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgba(34, 74, 128, 0.7);
+    color: white;
+}
+tfoot {
+    background-color: white;    
+}
+tbody {
+    font-size: 12px;
+}
+th {
+    height: 50px;
+}
+input[type=text] {
+	width: 300px;
+	height: 30px;
+	font-size: 16px;
+	float: right;
+	margin: 5px;
+	padding: 4px;
+}
+#article-count {
+	display: inline;
+	float: left;
+	font-size: 10px;
+	padding: 5px;
+}
+.barcode {
+    font-family: "3 of 9 Barcode";
+    font-size: 90px;
+}
+.barcode a {
+    cursor: pointer;
+    word-wrap: break-word;
+}
+.barcode-zoom {
+    font-family: "3 of 9 Barcode";
+    font-size: 111px;
+    padding: 0 20px;
+}

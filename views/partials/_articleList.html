@@ -1,0 +1,44 @@
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="6">
+                <div ng-show="loading" ng-hide="errorXML" id="article-count">Laddar artiklar...</div>
+                <div ng-hide="loading" id="article-count">Totalt {{ articleList.length }} artiklar</div>
+                <input id="filter-input" type="text" ng-model="filter.artikel" placeholder="Filtrera..."/>
+            </th>
+        </tr>
+        <tr>
+            <th style="width: 150px;">Bild</th>
+            <th style="width: 90px;"><a href="" ng-click="predicate = 'maximoNr'; reverse=!reverse">Maximo.nr.</a></th>
+            <th style="width: 150px;"><a href="" ng-click="predicate = '-varugrupp'; reverse=!reverse">Varugrupp</a></th>
+            <th style="width: 200px;"><a href="" ng-click="predicate = '-levArtNr'; reverse=!reverse">Lev.art.nr.</a></th>
+            <th style="width: 400px;">Artikelbeskrivning</th>
+            <th style="width: 390px;">Streckkod</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr ng-show="loading">
+            <th colspan="6">
+                <div ng-hide="errorXML">Laddar...</div>
+                <div ng-show="errorXML">Kunde inte läsa XML-filen. Kontrollera filen/filnamnet.</div>
+            </th>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr ng-repeat="a in articleList | filter:filter.artikel | orderBy:predicate:reverse">
+            <th>
+                <a ng-click="showPicture($event)" href="./bilder/{{ a.bild }}.jpg">
+                    <img ng-src="./bilder/{{a.bild}}.jpg" width="140px"/>
+                </a>
+            </th>
+            <th>{{ a.maximoNr }}</th>
+            <th>{{ a.varugrupp }}</th>
+            <th>{{ a.levArtNr }}</th>
+            <th>{{ a.beskrivning }}</th>
+            <th class="barcode">
+                <a ng-click="showBarcode(a.streckkod, a.maximoNr)">*{{ a.streckkod }}*</a>
+            </th>
+        </tr>
+    </tbody>
+</table>
