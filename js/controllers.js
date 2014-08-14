@@ -49,7 +49,8 @@ app.controller('AppCtrl', function($scope, $http, articleListFactory) {
                 if (k === 3) {
                     maximoNr = text;
                     streckkod = maximoNr;
-                    bild = maximoNr;
+                    // image filename uses maximoNr, but: ´_´ instead of ´/´
+                    bild = maximoNr.replace('/', '_');
                 } else if (k === 4) {
                     beskrivning = text;
                 } else if (k === 5) {
